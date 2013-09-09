@@ -78,7 +78,7 @@ object Parser extends JavaTokenParsers {
 
 // インタプリタコマンド
 trait Command
-case class Exit extends Command
+case class Exit() extends Command
 case class Add(val rule: Rule) extends Command
 case class Reduce(val term: Node) extends Command
 
