@@ -1,13 +1,12 @@
 package org.htk.trs
-import scala.io.Source
 import scala.util.parsing.combinator._
 import scala.util.parsing.input.{Reader, CharSequenceReader}
 
 object Interpreter {
   def main(args: Array[String]) {
     // @todo 入力の読み込み処理を見直す
-    val inputs = Source.fromFile("test.trs").toArray
-    val reader = new CharSequenceReader(inputs)
+    val input = io.Source.stdin.mkString
+    val reader = new CharSequenceReader(input)
     val rewriter = new Rewriter(Nil)
     interpret(reader, rewriter)
   }
